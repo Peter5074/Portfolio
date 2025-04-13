@@ -28,7 +28,7 @@ a {
     height: 100vh;
     background-color: #f5f5f5;
     position: relative;
-    background: url(https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg) center/cover no-repeat;
+    background: url(Images/IMG_20241201_100850681_AE1.jpg) center/cover no-repeat;
     /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/800') center/cover no-repeat; */
     display: flex;
     align-items: center;
@@ -36,7 +36,7 @@ a {
 }
 
 .hero-content {
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 50px;
     margin-left: 5%;
     max-width: 90%;
