@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
 <link rel="stylesheet" href="style.css">
@@ -62,16 +64,15 @@
 
             
             <ul class="social-list">
-                <li><a href="#" aria-label="Facebook">FB</a></li>
-                <li><a href="#" aria-label="Instagram">IG</a></li>
-                <li><a href="#" aria-label="YouTube">YT</a></li>
-                <li><a href="#" aria-label="LinkedIn">LI</a></li>
+                <li><a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" aria-label="Linkedin"target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
         </div>
         
         <div class="contact-form">
             <h2>Send a Message</h2>
-            <form>
+            <form id="contactForm">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -94,6 +95,7 @@
                 
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
+            <div id="statusMessage" class="status-message"></div>
         </div>
     </div>
 </section>
@@ -122,10 +124,10 @@
   <div class="container">
       <p>&copy; 2025 Suraj K Singh. All Rights Reserved.</p>
       <div class="social-links">
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="YouTube">YT</a>
-      </div>
+        <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Linkedin"target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
   </div>
 </footer>
 
@@ -147,11 +149,64 @@
 
 
 
+<!-- Include EmailJS library first -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <script>
-document.querySelector('.menu-toggle').addEventListener('click', function() {
-  this.classList.toggle('open');
-  document.querySelector('.nav-links').classList.toggle('active');
-});
+    // Initialize EmailJS with your user ID
+    (function() {
+        emailjs.init("lFH2NXbYE_YSwua6m");
+    })();
+    
+    // Menu toggle functionality
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        this.classList.toggle('open');
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+    
+    // Form submission handler
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                const statusMessage = document.getElementById('statusMessage');
+                
+                emailjs.send('service_g9k3i1j', 'template_90jva0k', {
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message
+                })
+                .then(function() {
+                    // Success message
+                    statusMessage.textContent = 'Your message has been sent successfully!';
+                    statusMessage.className = 'status-message success';
+                    
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+                    
+                    // Clear success message after 5 seconds
+                    setTimeout(function() {
+                        statusMessage.textContent = '';
+                        statusMessage.className = 'status-message';
+                    }, 5000);
+                })
+                .catch(function(error) {
+                    // Error message
+                    statusMessage.textContent = 'Oops! Something went wrong. Please try again later.';
+                    statusMessage.className = 'status-message error';
+                    console.error('Error sending email:', error);
+                });
+            });
+        }
+    });
 </script>
         
 </body>

@@ -871,24 +871,27 @@ nav .container {
     .contact-form {
         flex: 1;
         min-width: 300px;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
     }
-
+    
     .contact-form h2 {
         font-size: 36px;
         margin-bottom: 30px;
         color: #2C9AB7;
     }
-
+    
     .form-group {
         margin-bottom: 20px;
     }
-
+    
     .form-group label {
         display: block;
         margin-bottom: 8px;
         font-weight: 500;
     }
-
+    
     .form-group input,
     .form-group textarea {
         width: 100%;
@@ -898,18 +901,18 @@ nav .container {
         font-size: 16px;
         transition: border-color 0.3s ease;
     }
-
+    
     .form-group input:focus,
     .form-group textarea:focus {
         border-color: #2C9AB7;
         outline: none;
     }
-
+    
     .form-group textarea {
         height: 150px;
         resize: vertical;
     }
-
+    
     .submit-btn {
         padding: 12px 30px;
         background-color: #2C9AB7;
@@ -921,9 +924,31 @@ nav .container {
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
-
+    
     .submit-btn:hover {
         background-color: #1f7f99;
+    }
+    
+    /* Status message styling */
+    .status-message {
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 4px;
+        display: none;
+    }
+    
+    .success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        display: block;
+    }
+    
+    .error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        display: block;
     }
 
     /* Map Section */
