@@ -125,7 +125,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url(images/cover.jpg);
+            background-image: url(images/hero.png);
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -387,6 +387,52 @@
         .work-link:hover {
             color: var(--primary-color);
             transform: translateX(5px);
+        }
+
+        /* Pagination */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .page-item {
+            margin: 0 3px;
+        }
+
+        .page-link {
+            border-radius: 50% !important;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            padding: 0;
+        }
+
+        .page-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .page-item.active .page-link {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .page-item.disabled .page-link {
+            color: #6c757d;
+            pointer-events: none;
+            background-color: #f8f9fa;
+            border-color: #dee2e6;
         }
 
         /* Article Modal */
@@ -713,11 +759,27 @@
             .work-image {
                 height: 180px;
             }
+            .page-link {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+            }
         }
 
         @media (max-width: 576px) {
             body {
                 padding-top: 60px;
+            }
+            .hero-section {
+            min-height: 70vh;
+            padding-top: 60px;
+            padding-bottom: 40px;
+            }
+            .hero-content .lead {
+            font-size: 1rem;
+             }
+            .btn-outline-light {
+            font-size: 0.9rem;
             }
             .hero-title {
                 font-size: 2.3rem;
@@ -731,5 +793,11 @@
             .modal-header h3 {
                 font-size: 1.4rem;
                 max-width: 70%;
+            }
+            .page-link {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                font-size: 0.9rem;
             }
         }

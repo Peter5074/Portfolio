@@ -1,205 +1,101 @@
-document.addEventListener('DOMContentLoaded', function() {
-            // Hide loader after page load
-            setTimeout(function() {
-                document.querySelector('.loader').style.opacity = '0';
-                setTimeout(function() {
-                    document.querySelector('.loader').style.display = 'none';
-                }, 500);
-            }, 1500);
+document.addEventListener('DOMContentLoaded', async function() { // Add async here
+    // Hide loader after page load
+    setTimeout(function() {
+        document.querySelector('.loader').style.opacity = '0';
+        setTimeout(function() {
+            document.querySelector('.loader').style.display = 'none';
+        }, 500);
+    }, 1500);
 
-            // Navbar scroll effect
-            window.addEventListener('scroll', function() {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
+             // Navbar scroll effect
+           window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
             });
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    // Update active nav link
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    
-                    // Scroll to target
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                });
+            this.classList.add('active');
+            
+            // Scroll to target
+            window.scrollTo({
+                top: targetElement.offsetTop - 70,
+                behavior: 'smooth'
             });
+        });
+    });
 
-            // Initialize works
-            const worksData = [
-{
-    id: 2,
-    title: "Understanding RPM: A Key Metric in Digital Monetization",
-    category: "features",
-    date: "June 2, 2025",
-    excerpt: "A clear explanation of RPM, why it matters for publishers, and how it influences digital revenue strategies.",
-    image: "https://images.unsplash.com/photo-1565372912404-e29b6a20b295?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80",
-    content: `
-        <p>As digital content grows exponentially, understanding how revenue is generated has become crucial for content creators and publishers. One of the most important metrics in this landscape is RPM — Revenue Per Mille, or revenue per thousand impressions.</p>
 
-        <img src="https://images.unsplash.com/photo-1581093588401-c68c6b66f15c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Digital Revenue">
-
-        <p>RPM measures how much money a website or platform earns for every 1,000 page views or ad impressions. It provides a more realistic picture of how well monetization strategies are working, especially when dealing with advertising networks like Google AdSense or other programmatic platforms.</p>
-
-        <div class="article-quote">
-            "RPM doesn't just track revenue — it tells the story of how efficiently your audience is being monetized."
-        </div>
-
-        <p>Unlike CPC (Cost Per Click) or CPM (Cost Per Mille), which focus on advertiser spending, RPM focuses on the publisher’s earnings. It's calculated by dividing the estimated earnings by the number of impressions, then multiplying by 1,000.</p>
-
-        <h4>How to Calculate RPM</h4>
-
-        <p>The formula is straightforward:</p>
-
-        <pre><code>RPM = (Estimated Earnings / Number of Impressions) × 1000</code></pre>
-
-        <p>For example, if you earned ₹500 from 25,000 page views, your RPM would be ₹20. This helps compare different revenue sources or evaluate the impact of changes in website layout, ad formats, or traffic sources.</p>
-
-        <h4>Why RPM Matters</h4>
-
-        <p>RPM acts as a diagnostic tool. A rising RPM indicates that your traffic is being monetized more effectively — possibly due to better ad placements, higher quality traffic, or increased user engagement. On the other hand, a low or declining RPM could suggest issues such as:</p>
-
-        <ul>
-            <li><strong>Low Ad Engagement:</strong> Visitors may not be interacting with ads.</li>
-            <li><strong>Poor Targeting:</strong> Ads are not relevant to the audience.</li>
-            <li><strong>Unoptimized Layout:</strong> Ads aren't placed strategically on the page.</li>
-            <li><strong>Traffic Source Quality:</strong> Some sources may deliver low-paying traffic.</li>
-        </ul>
-
-        <h4>Strategies to Improve RPM</h4>
-
-        <p>To increase your RPM, consider the following strategies:</p>
-
-        <ul>
-            <li>Experiment with different ad formats and placements.</li>
-            <li>Improve content quality to increase session duration.</li>
-            <li>Use lazy loading to improve page speed without hurting ad viewability.</li>
-            <li>Target high-value keywords and audience segments.</li>
-            <li>Enable header bidding or work with premium ad networks.</li>
-        </ul>
-
-        <p>In the dynamic world of digital publishing, RPM stands out as a core metric to evaluate and enhance revenue generation. Understanding it is the first step toward building a sustainable content business online.</p>
-    `
-}
-,
+            // Initialize articles
+           let articlesData = []; // Declare articlesData at the top level
+    
+    async function loadWorksData() {
+        try {
+            const response = await fetch('works.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            return await response.json();
+        } catch (error) {
+            console.error('Error loading works data:', error);
+            // Fallback data in case JSON fails to load
+            return [
                 {
-                    id: 2,
-                    title: "Youth and Politics: The Disconnect",
-                    category: "opinion",
-                    date: "May 22, 2025",
-                    excerpt: "Exploring why young voters feel alienated from the political process and what can be done.",
-                    image: "https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
-                    content: `
-                        <p>India has the world's largest youth population, with over 600 million people under the age of 25. Yet, political engagement among young voters remains surprisingly low. In the last general election, only 58% of eligible voters aged 18-25 cast their ballots, compared to 67% of the overall electorate.</p>
-                        
-                        <p>This disconnect between youth and politics is a growing concern for the health of our democracy. As a journalism student who has interviewed dozens of young Indians across the country, I've identified several key reasons for this alienation:</p>
-                        
-                        <h4>Perceived Irrelevance</h4>
-                        
-                        <p>Many young people feel that mainstream politics doesn't address issues that matter to them. While politicians debate ideological positions, young voters are concerned about practical issues like employment opportunities, educational quality, mental health support, and climate change.</p>
-                        
-                        <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Youth and Politics">
-                        
-                        <h4>Lack of Representation</h4>
-                        
-                        <p>The average age of Members of Parliament in India is 54, while the median age of the population is 28. This generational gap creates a representation problem. Young voters struggle to see themselves reflected in the political leadership.</p>
-                        
-                        <div class="article-quote">
-                            "When I look at Parliament, I see people who could be my grandparents, not people who understand my life experiences."
-                        </div>
-                        
-                        <p>This sentiment was echoed by many students I spoke with at universities across India.</p>
-                        
-                        <h4>Digital Disconnect</h4>
-                        
-                        <p>While political parties have embraced digital campaigning, their engagement often feels superficial. Bombarding young voters with WhatsApp forwards and social media ads isn't the same as meaningful engagement. Many young people see political communication as one-way broadcasting rather than genuine dialogue.</p>
-                        
-                        <h4>Bridging the Gap</h4>
-                        
-                        <p>How can we engage young voters more effectively? Based on my research, several approaches show promise:</p>
-                        
-                        <ul>
-                            <li><strong>Issue-Based Campaigning:</strong> Focus on concrete policy proposals rather than personality cults.</li>
-                            <li><strong>Youth Wings with Real Power:</strong> Give young party members meaningful roles in decision-making.</li>
-                            <li><strong>Civic Education:</strong> Strengthen civics curriculum in schools and colleges.</li>
-                            <li><strong>Digital Town Halls:</strong> Create platforms for genuine dialogue between candidates and young voters.</li>
-                        </ul>
-                        
-                        <p>Engaging young voters isn't just about securing their votes; it's about ensuring the long-term health of our democracy. When young people feel disconnected from the political process, we all lose the fresh perspectives and innovative ideas that could address India's most pressing challenges.</p>
-                    `
-                },
-                {
-                    id: 3,
-                    title: "Local Heroes: Community Response During Floods",
+                    id: 1,
+                    title: "Sample Article",
                     category: "news",
-                    date: "April 10, 2025",
-                    excerpt: "Documenting the extraordinary efforts of ordinary citizens during the recent floods in Bihar.",
-                    image: "https://images.unsplash.com/photo-1583321500900-82807e458f3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
-                    content: `
-                        <p>BIHAR - When the Koshi River breached its banks last month, flooding dozens of villages in Bihar's Supaul district, the government response was slow to arrive. But long before official rescue teams reached the area, ordinary citizens had already sprung into action, creating an inspiring story of community resilience.</p>
-                        
-                        <p>I spent two weeks documenting these efforts, traveling by boat through flooded villages to capture stories of courage and compassion in the face of disaster.</p>
-                        
-                        <h4>The Fishermen Turned Rescuers</h4>
-                        
-                        <p>Mohammad Asif, a 42-year-old fisherman from Murliganj, became an unlikely hero when the floods hit. Using his small fishing boat, he rescued over 120 people from submerged homes in the first 48 hours of flooding.</p>
-                        
-                        <img src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1952&q=80" alt="Flood Rescue">
-                        
-                        <p>"I've lived by this river all my life," Asif told me. "I know its moods and dangers. When I saw the water rising so fast, I knew people would need help."</p>
-                        
-                        <p>Asif worked non-stop for three days, sleeping only in brief naps between rescue missions. His small boat, designed for catching fish, became a lifeline for entire families stranded on rooftops.</p>
-                        
-                        <h4>The Community Kitchen</h4>
-                        
-                        <p>In Saharsa, 65-year-old Saroj Devi transformed her partially flooded home into a community kitchen. With help from neighbors, she cooked meals for over 500 displaced people daily, using whatever supplies they could salvage or collect through donations.</p>
-                        
-                        <div class="article-quote">
-                            "In times of crisis, food is more than nutrition—it's comfort, community, and hope."
-                        </div>
-                        
-                        <p>Despite water reaching waist-level in her courtyard, Saroj and her team continued cooking, wading through water to distribute meals to relief camps and stranded families.</p>
-                        
-                        <h4>The Student Volunteers</h4>
-                        
-                        <p>College students from Patna formed a volunteer network that became crucial in coordinating relief efforts. Using social media and messaging apps, they created real-time maps of affected areas, identified people in need of rescue, and directed resources where they were most needed.</p>
-                        
-                        <p>Riya Sharma, a 21-year-old engineering student, led a team that developed a simple but effective flood tracking system using Google Maps and WhatsApp. "Technology gave us a way to help when we couldn't be there physically," she explained.</p>
-                        
-                        <h4>Lessons in Resilience</h4>
-                        
-                        <p>These stories highlight a powerful truth: in times of crisis, community bonds often prove stronger than any disaster. While government systems are essential for large-scale response, it's the local heroes like Asif, Saroj, and Riya who provide the immediate, life-saving assistance when disaster strikes.</p>
-                        
-                        <p>As climate change makes extreme weather events more frequent, these stories of community resilience offer both inspiration and a model for how we might better prepare for future disasters.</p>
-                    `
+                    date: "June 1, 2025",
+                    excerpt: "This is a sample article that appears when the JSON file fails to load.",
+                    image: "https://via.placeholder.com/800x500?text=Sample+Image",
+                    content: "<p>This is sample content that appears when the JSON file fails to load.</p>"
                 }
             ];
+        }
+    }
 
+    // Load works data first, then initialize the rest
+    articlesData = await loadWorksData();
+
+
+            // Pagination variables
             const worksGrid = document.getElementById('works-grid');
+            const paginationContainer = document.getElementById('pagination');
+            const cardsPerPage = 6;
+            let currentPage = 1;
+            let currentFilter = 'all';
             
-            // Function to render works
-            function renderWorks(filter = 'all') {
+            // Function to render works with pagination
+            function renderWorks(filter = 'all', page = 1) {
                 worksGrid.innerHTML = '';
+                currentPage = page;
+                currentFilter = filter;
                 
                 const filteredWorks = filter === 'all' 
-                    ? worksData 
-                    : worksData.filter(work => work.category === filter);
+                    ? articlesData 
+                    : articlesData.filter(work => work.category === filter);
                 
-                filteredWorks.forEach(work => {
+                // Calculate total pages
+                const totalPages = Math.ceil(filteredWorks.length / cardsPerPage);
+                
+                // Get current page of articles
+                const startIndex = (page - 1) * cardsPerPage;
+                const endIndex = startIndex + cardsPerPage;
+                const currentArticles = filteredWorks.slice(startIndex, endIndex);
+                
+                // Render articles
+                currentArticles.forEach(work => {
                     const workCard = document.createElement('div');
                     workCard.className = 'col-md-6 col-lg-4';
                     workCard.innerHTML = `
@@ -230,11 +126,77 @@ document.addEventListener('DOMContentLoaded', function() {
                         openArticle(articleId);
                     });
                 });
+                
+                // Render pagination
+                renderPagination(totalPages);
+            }
+            
+            // Function to render pagination controls
+            function renderPagination(totalPages) {
+                paginationContainer.innerHTML = '';
+                
+                // Previous button
+                const prevButton = document.createElement('li');
+                prevButton.className = 'page-item' + (currentPage === 1 ? ' disabled' : '');
+                prevButton.innerHTML = `<a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>`;
+                prevButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (currentPage > 1) {
+                        renderWorks(currentFilter, currentPage - 1);
+                    }
+                });
+                paginationContainer.appendChild(prevButton);
+                
+                // Page numbers
+                const maxPagesToShow = 5;
+                let startPage, endPage;
+                
+                if (totalPages <= maxPagesToShow) {
+                    startPage = 1;
+                    endPage = totalPages;
+                } else {
+                    const maxPagesBeforeCurrent = Math.floor(maxPagesToShow / 2);
+                    const maxPagesAfterCurrent = Math.ceil(maxPagesToShow / 2) - 1;
+                    
+                    if (currentPage <= maxPagesBeforeCurrent) {
+                        startPage = 1;
+                        endPage = maxPagesToShow;
+                    } else if (currentPage + maxPagesAfterCurrent >= totalPages) {
+                        startPage = totalPages - maxPagesToShow + 1;
+                        endPage = totalPages;
+                    } else {
+                        startPage = currentPage - maxPagesBeforeCurrent;
+                        endPage = currentPage + maxPagesAfterCurrent;
+                    }
+                }
+                
+                for (let i = startPage; i <= endPage; i++) {
+                    const pageItem = document.createElement('li');
+                    pageItem.className = 'page-item' + (i === currentPage ? ' active' : '');
+                    pageItem.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+                    pageItem.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        renderWorks(currentFilter, i);
+                    });
+                    paginationContainer.appendChild(pageItem);
+                }
+                
+                // Next button
+                const nextButton = document.createElement('li');
+                nextButton.className = 'page-item' + (currentPage === totalPages ? ' disabled' : '');
+                nextButton.innerHTML = `<a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>`;
+                nextButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (currentPage < totalPages) {
+                        renderWorks(currentFilter, currentPage + 1);
+                    }
+                });
+                paginationContainer.appendChild(nextButton);
             }
             
             // Function to open article in modal
             function openArticle(articleId) {
-                const article = worksData.find(item => item.id == articleId);
+                const article = articlesData.find(item => item.id == articleId);
                 if (!article) return;
                 
                 document.getElementById('article-title').textContent = article.title;
@@ -280,11 +242,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     this.classList.add('active');
                     
                     const filter = this.getAttribute('data-filter');
-                    renderWorks(filter);
+                    renderWorks(filter, 1);
                 });
             });
             
-            // Contact form submission
+           // Contact form submission
             const contactForm = document.getElementById('contactForm');
             const submitBtn = contactForm.querySelector('.btn-submit');
             const btnText = contactForm.querySelector('.btn-text');
