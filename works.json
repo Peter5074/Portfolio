@@ -1,6 +1,16 @@
 [
   {
-    "id": 1,
+  "id": 11,
+  "title": "Coca-Cola India Announces Voluntary Recall of 500ml Bottles in Select Regions",
+  "category": "pr",
+  "date": "June 5, 2025",
+  "excerpt": "Coca-Cola India issues a precautionary recall for a limited batch of 500ml PET bottles due to a packaging error discovered during an internal quality audit.",
+  "image": "https://1000logos.net/wp-content/uploads/2021/05/Coca-Cola-logo.png",
+  "content": "<p><strong>PRESS RELEASE</strong><br><em>For Immediate Release</em></p><h4>📍 New Delhi, India – June 5, 2025</h4><p>Coca-Cola India today announced a voluntary recall of its 500ml PET bottles from select markets across Delhi NCR and Uttar Pradesh, following an internal quality audit that identified a minor packaging error at its Greater Noida facility. The recall applies solely to a specific batch manufactured on May 25, 2025.</p><p>“At Coca-Cola India, consumer safety is our top priority. Although no health risks have been reported, we are taking this precautionary measure to uphold the highest standards of quality,” said Anjali Sharma, Director of Corporate Affairs, Coca-Cola India.</p><p>The company has activated its distribution and retail networks to ensure the prompt removal of affected products. Consumers who purchased the recalled batch may contact Coca-Cola India’s helpline or return the product to the nearest retail outlet for a refund or replacement.</p><p>Coca-Cola India regrets any inconvenience caused and assures that all other products remain safe and unaffected.</p><hr><p><strong>Media Contact:</strong><br>Corporate Communications Team<br>Coca-Cola India<br>📧 <a href=\"mailto:press@coca-colaindia.in\">press@coca-colaindia.in</a><br>☎️ +91-11-4567-8900</p>"
+},
+
+  {
+    "id": 10,
     "title": "The Changing Landscape of Indian Media",
     "category": "features",
     "date": "June 15, 2025",
@@ -9,7 +19,7 @@
     "content": "<p>The Indian media landscape is undergoing a profound transformation, driven by technological advancements and changing consumer behaviors. As digital platforms gain prominence, traditional media outlets are facing unprecedented challenges and opportunities.</p><img src=\"https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80\" alt=\"Media Transformation\"><p>In the last decade, India has witnessed an explosion of digital news consumption. With over 700 million internet users and growing smartphone penetration, digital platforms have become the primary news source for millions of Indians, particularly the younger demographic.</p><div class=\"article-quote\">\"The smartphone has become the printing press of the 21st century, putting the power of information dissemination directly into the hands of citizens.\"</div><p>This shift has forced traditional media organizations to rethink their business models. Newspapers that once relied on print subscriptions are now investing heavily in digital platforms, while television networks are expanding their online presence through apps and streaming services.</p>"
   },
   {
-    "id": 2,
+    "id": 9,
     "title": "Youth and Politics: The Disconnect",
     "category": "opinion",
     "date": "May 22, 2025",
@@ -18,16 +28,7 @@
     "content": "<p>India has the world's largest youth population, with over 600 million people under the age of 25. Yet, political engagement among young voters remains surprisingly low. In the last general election, only 58% of eligible voters aged 18-25 cast their ballots, compared to 67% of the overall electorate.</p><p>This disconnect between youth and politics is a growing concern for the health of our democracy. As a journalism student who has interviewed dozens of young Indians across the country, I've identified several key reasons for this alienation:</p><h4>Perceived Irrelevance</h4><p>Many young people feel that mainstream politics doesn't address issues that matter to them. While politicians debate ideological positions, young voters are concerned about practical issues like employment opportunities, educational quality, mental health support, and climate change.</p>"
   },
   {
-    "id": 3,
-    "title": "Local Heroes: Community Response During Floods",
-    "category": "news",
-    "date": "April 10, 2025",
-    "excerpt": "Documenting the extraordinary efforts of ordinary citizens during the recent floods in Bihar.",
-    "image": "https://images.unsplash.com/photo-1583321500900-82807e458f3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
-    "content": "<p>BIHAR - When the Koshi River breached its banks last month, flooding dozens of villages in Bihar's Supaul district, the government response was slow to arrive. But long before official rescue teams reached the area, ordinary citizens had already sprung into action, creating an inspiring story of community resilience.</p><p>I spent two weeks documenting these efforts, traveling by boat through flooded villages to capture stories of courage and compassion in the face of disaster.</p><h4>The Fishermen Turned Rescuers</h4><p>Mohammad Asif, a 42-year-old fisherman from Murliganj, became an unlikely hero when the floods hit. Using his small fishing boat, he rescued over 120 people from submerged homes in the first 48 hours of flooding.</p>"
-  },
-  {
-    "id": 4,
+    "id": 8,
     "title": "The Rise of Campus Journalism",
     "category": "features",
     "date": "March 28, 2025",
@@ -36,7 +37,7 @@
     "content": "<p>Across Indian universities, a quiet revolution is taking place in campus journalism. What was once seen as a hobby for politically-minded students has transformed into a serious training ground for the next generation of journalists.</p><p>In my journey through various university campuses, I've discovered vibrant student publications tackling complex issues with professionalism and insight.</p><h4>Beyond University Walls</h4><p>The impact of campus journalism extends beyond university walls. Many student journalists are breaking stories that gain national attention.</p>"
   },
   {
-    "id": 5,
+    "id": 7,
     "title": "Fact-Checking in the Age of Misinformation",
     "category": "opinion",
     "date": "February 15, 2025",
@@ -46,24 +47,15 @@
   },
   {
     "id": 6,
-    "title": "Urban Farming: A Solution to Food Deserts",
-    "category": "news",
-    "date": "January 5, 2025",
-    "excerpt": "How community gardens are addressing food insecurity in urban areas.",
-    "image": "https://images.unsplash.com/photo-1594122230681-6b4b9bd1e4f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80",
-    "content": "<p>MUMBAI - In the shadow of high-rise buildings and bustling streets, a green revolution is taking root. Urban farming initiatives are transforming vacant lots and rooftops into productive gardens, providing fresh produce to communities that have long been food deserts.</p><p>In Dharavi, Asia's largest slum, residents have created an impressive network of rooftop gardens that supply fresh vegetables to hundreds of families. What began as a small pilot project has now grown into a movement that's being replicated across other urban centers.</p>"
-  },
-  {
-    "id": 7,
     "title": "The Ethics of AI in Journalism",
     "category": "opinion",
     "date": "December 12, 2024",
     "excerpt": "Balancing efficiency with ethical considerations in AI-assisted reporting.",
-    "image": "https://images.unsplash.com/photo-1677442135722-5f3d3f5bd64a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80",
+    "image": "images/teaj.png",
     "content": "<p>As artificial intelligence becomes increasingly integrated into newsrooms, journalists face new ethical dilemmas. The convenience of AI tools for tasks like data analysis, transcription, and even content generation must be balanced with concerns about accuracy, bias, and transparency.</p><p>During my internship at a major news outlet, I witnessed firsthand how AI-generated summaries of press releases were being published with minimal human oversight. While efficient, this practice raises serious questions about journalistic integrity.</p>"
   },
   {
-    "id": 8,
+    "id": 5,
     "title": "Reviving Regional Language Journalism",
     "category": "features",
     "date": "November 8, 2024",
@@ -72,16 +64,7 @@
     "content": "<p>While English-language media dominates national discourse, a quiet revolution is happening in regional language journalism. Across India, digital-native publications in languages like Tamil, Marathi, and Bengali are seeing unprecedented growth, filling gaps left by mainstream media.</p><p>In my research, I discovered that these platforms often achieve higher engagement rates than their English counterparts by focusing on hyperlocal issues that directly impact their readers' daily lives.</p>"
   },
   {
-    "id": 9,
-    "title": "Mental Health in Newsrooms",
-    "category": "news",
-    "date": "October 15, 2024",
-    "excerpt": "Addressing the psychological toll of journalism in high-pressure environments.",
-    "image": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80",
-    "content": "<p>Journalism has long been considered a high-stress profession, but the mental health challenges faced by reporters, especially those covering trauma and conflict, have only recently begun to receive serious attention.</p><p>My interviews with war correspondents and crime reporters reveal a profession struggling to address the psychological toll of constant exposure to human suffering. Many journalists report feeling unsupported by their organizations when dealing with trauma-related stress.</p>"
-  },
-  {
-    "id": 10,
+    "id": 4,
     "title": "The Future of Press Freedom",
     "category": "opinion",
     "date": "September 22, 2024",
@@ -90,7 +73,7 @@
     "content": "<p>Press freedom faces unprecedented challenges worldwide, with journalists increasingly targeted by both state and non-state actors. Yet, simultaneously, technology has created new opportunities for independent journalism to flourish.</p><p>Through my analysis of global press freedom indices and interviews with journalists from conflict zones, I've identified several emerging trends that will shape the future of journalism.</p>"
   },
   {
-    "id": 11,
+    "id": 3,
     "title": "Data Visualization in Investigative Reporting",
     "category": "features",
     "date": "August 30, 2024",
@@ -99,7 +82,7 @@
     "content": "<p>The rise of data journalism has transformed how complex stories are told. By combining traditional reporting with sophisticated visualization techniques, journalists can make intricate data accessible and engaging to general audiences.</p><p>In my work on a project tracking education funding disparities, I learned how a well-designed infographic can communicate what thousands of words might struggle to convey. Visual storytelling has become an essential tool in the modern journalist's toolkit.</p>"
   },
   {
-    "id": 12,
+    "id": 2,
     "title": "Citizen Journalism and Professional Standards",
     "category": "opinion",
     "date": "July 17, 2024",
@@ -108,7 +91,7 @@
     "content": "<p>The proliferation of smartphones has turned ordinary citizens into potential news gatherers, blurring the lines between professional journalism and amateur reporting. This democratization of news gathering presents both opportunities and challenges for the profession.</p><p>Through case studies of major events where citizen journalism played a crucial role, I examine how news organizations can effectively collaborate with citizen reporters while maintaining professional standards of accuracy and verification.</p>"
   },
   {
-    "id": 13,
+    "id": 1,
     "title": "Campus Sustainability Drive: Green Week 2025",
     "category": "pr",
     "date": "June 5, 2025",
