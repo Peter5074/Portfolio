@@ -872,3 +872,18 @@
         padding: 20px;
     }
 }
+
+@media print {
+  header, footer, .close-full-article, .btn, nav, .pagination-container {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+  .full-article-container {
+    box-shadow: none;
+    padding: 0;
+  }
+}
+

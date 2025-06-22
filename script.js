@@ -9,6 +9,17 @@ document.addEventListener('DOMContentLoaded', async function() {
         }, 500);
     }, 1500);
 
+    document.getElementById('printArticle').addEventListener('click', function () {
+    const printContents = document.querySelector('.full-article-container').innerHTML;
+    const originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+    location.reload(); // reloads to restore event bindings
+});
+
+
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
